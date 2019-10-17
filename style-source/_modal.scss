@@ -160,7 +160,7 @@
   .token__header,
   .token__content,
   .fair-game-checker__header,
-  .fair-game-checker__footer,
+  .modal-footer,
   .avatar-uploader__header,
   .avatar-uploader__content {
     @include modalBreak {
@@ -387,16 +387,6 @@
   .avatar-uploader {
     @include fluid(font-size, $break-token1, $break-token2, 16px, 14px);
     color: $color-dark-pale;
-
-    &__header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: $border-radius-main $border-radius-main 0 0;
-      color: white;
-      background: #092743 url("../images/bg-modal-tron-2.jpg") center no-repeat;
-      background-size: cover;
-    }
 
     &__content {
       border-radius: 0 0 $border-radius-main $border-radius-main;
@@ -792,11 +782,6 @@
 
   .fair-game-checker,
   .avatar-uploader {
-    &__header {
-      @include fluid(height, $break-fair-game1, $break-fair-game2, 80px, 54px);
-      @include fluid(font-size, $break-fair-game1, $break-fair-game2, 24px, 16px);
-    }
-
     &__content {
       @include fluid(padding-top, $break-fair-game1, $break-fair-game2, 36px, 20px);
       @include fluid(padding-left, $break-fair-game1, $break-fair-game2, 40px, 20px);
@@ -926,6 +911,18 @@
       margin-left: $margin;
     }
   }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include fluid(height, $break-fair-game1, $break-fair-game2, 80px, 54px);
+  border-radius: $border-radius-main $border-radius-main 0 0;
+  @include fluid(font-size, $break-fair-game1, $break-fair-game2, 24px, 16px);
+  color: white;
+  background: #092743 url("../images/bg-modal-tron-2.jpg") center no-repeat;
+  background-size: cover;
 }
 
 .modal-footer {

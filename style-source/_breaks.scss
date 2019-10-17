@@ -79,3 +79,9 @@ $break-token2: $break-main-400;
 
 $break-fair-game1: 1400px;
 $break-fair-game2: $break-main-400;
+
+@mixin modalBreak() {
+  @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+    @content;
+  };
+}

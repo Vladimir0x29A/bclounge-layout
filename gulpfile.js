@@ -55,7 +55,7 @@ function cssTask() {
 }*/
 
 function watchTask() {
-    watch(['style-source/main.scss'], cssTask);
+    watch(['style-source/*.scss'], cssTask);
     // gulp.watch('scripts-source/!*.js', ['js']);
     // gulp.watch('build/img/!*.*', ['reload']);
     // gulp.watch('build/fonts/!*.*', ['reload']);

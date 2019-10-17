@@ -56,3 +56,7 @@ input, a, button, textarea {
 button {
     background: none;
 }
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}

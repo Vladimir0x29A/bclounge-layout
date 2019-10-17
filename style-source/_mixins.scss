@@ -1,0 +1,63 @@
+@mixin rem($fz) {
+  font-size: $fz / 16 + rem;
+}
+
+@mixin fluid($property, $maxScreen, $minScreen, $maxValue, $minValue, $flag_before: true, $flag_after: true) {
+  @if $flag_before == true {
+    #{$property}: $maxValue;
+  }
+  @media screen and (max-width: $maxScreen) {
+    $m: ($maxValue - $minValue) / ($maxScreen - $minScreen);
+    $b: round($minValue - $m * $minScreen);
+    $temp: round($m * 100vw * 100) / 100;
+    @if $b < 0 {
+      #{$property}: calc(#{$temp} - #{abs($b)});
+    } @else if $b > 0 {
+      #{$property}: calc(#{$temp} + #{$b});
+    } @else if $b == 0 {
+      #{$property}: $temp;
+    }
+  }
+  @if $flag_after == true {
+    @media screen and (max-width: $minScreen) {
+      #{$property}: $minValue;
+    }
+  }
+}
+
+@mixin customIcon($size, $pad) {
+  width: $size + $pad * 2;
+  height: $size + $pad * 2;
+}
+
+@mixin customIcon2($size, $pad, $screen: false, $isPad: true, $isSize: true) {
+  @if $screen {
+    &--identicon {
+      @media screen and (max-width: $screen) {
+        width: $size;
+        height: $size;
+        @if $isPad {
+          padding: $pad;
+        }
+      }
+    }
+    &--customicon {
+      @media screen and (max-width: $screen) {
+        width: $size + $pad * 2;
+        height: $size + $pad * 2;
+      }
+    }
+  } @else {
+    &--identicon {
+      @if $isSize {
+        width: $size;
+        height: $size;
+      }
+      padding: $pad;
+    }
+    &--customicon {
+      width: $size + $pad * 2;
+      height: $size + $pad * 2;
+    }
+  }
+}

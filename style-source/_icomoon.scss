@@ -1,0 +1,284 @@
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "../fonts" !default;
+
+$icomoon-pencil: "\e941";
+$icomoon-user-2: "\e93f";
+$icomoon-clock: "\e940";
+$icomoon-apex: "\e93e";
+$icomoon-question: "\e93d";
+$icomoon-play: "\e93c";
+$icomoon-search: "\e93b";
+$icomoon-tronlink: "\e93a";
+$icomoon-faq-info: "\e937";
+$icomoon-faq-danger: "\e938";
+$icomoon-faq-attention: "\e939";
+$icomoon-quest: "\e936";
+$icomoon-airdrop: "\e935";
+$icomoon-dividends-thin: "\e933";
+$icomoon-referal-thin: "\e934";
+$icomoon-dividends: "\e931";
+$icomoon-referal: "\e932";
+$icomoon-allert-tron: "\e930";
+$icomoon-bet: "\e92f";
+$icomoon-tron: "\e92e";
+$icomoon-logo-tron: "\e92d";
+$icomoon-arrow-rate: "\e92c";
+$icomoon-info: "\e92b";
+$icomoon-qr-code: "\e92a";
+$icomoon-top: "\e929";
+$icomoon-fastGame: "\e928";
+$icomoon-poker: "\e923";
+$icomoon-dice: "\e924";
+$icomoon-roulette: "\e925";
+$icomoon-roulette-broken: "\e926";
+$icomoon-telegram-arrow: "\e903";
+$icomoon-letter: "\e902";
+$icomoon-language: "\e90a";
+$icomoon-ok: "\e909";
+$icomoon-arrow-double: "\e908";
+$icomoon-arrows-bended: "\e91f";
+$icomoon-notifications: "\e920";
+$icomoon-logo-text: "\e90e";
+$icomoon-logo-circle-outer: "\e90f";
+$icomoon-logo-circle-inner: "\e910";
+$icomoon-logo-bitcoin: "\e911";
+$icomoon-allert-cross: "\e91a";
+$icomoon-logo-allert: "\e912";
+$icomoon-logo-entire: "\e913";
+$icomoon-arrow-down-2: "\e914";
+$icomoon-cross: "\e906";
+$icomoon-help: "\e907";
+$icomoon-arrows: "\e91b";
+$icomoon-bell: "\e90c";
+$icomoon-volume-whole-off: "\e915";
+$icomoon-volume-whole-on: "\e916";
+$icomoon-arrow-down: "\e905";
+$icomoon-wallet: "\e90b";
+$icomoon-game: "\e90d";
+$icomoon-support: "\e917";
+$icomoon-help2: "\e918";
+$icomoon-adjustments: "\e91c";
+$icomoon-safety: "\e91d";
+$icomoon-balance: "\e91e";
+$icomoon-user: "\e919";
+$icomoon-medium: "\e927";
+$icomoon-telegram: "\e904";
+$icomoon-steemit: "\e922";
+$icomoon-ethereum: "\e900";
+$icomoon-etz: "\e921";
+$icomoon-twitter: "\ea96";
+$icomoon-facebook: "\ea90";
+$icomoon-exit: "\e901";
+$icomoon-github: "\eab0";
+$icomoon-linkedin: "\eac9";
+
+@font-face {
+  font-family: #{$icomoon-font-family};
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff") format("woff"), url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf") format("truetype"), url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg##{$icomoon-font-family}") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+%im, [class^="icomoon-"]:before, [class*=" icomoon-"]:before {
+  // use !important to prevent issues with browser extensions that change fonts
+  font-family: #{$icomoon-font-family} !important;
+  speak: none;
+  //font-size: 1rem
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  // Better Font Rendering ===========
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon {
+  &-tron {
+    &:before {
+      content: $icomoon-tron;
+    }
+  }
+
+  &-logo-text {
+    &:before {
+      content: $icomoon-logo-text;
+    }
+  }
+
+  &-logo-circle-outer {
+    &:before {
+      content: $icomoon-logo-circle-outer;
+    }
+  }
+
+  &-logo-circle-inner {
+    &:before {
+      content: $icomoon-logo-circle-inner;
+    }
+  }
+
+  &-logo-bitcoin {
+    &:before {
+      content: $icomoon-logo-bitcoin;
+    }
+  }
+
+  &-logo-allert {
+    &:before {
+      content: $icomoon-logo-allert;
+    }
+  }
+
+  &-logo-entire {
+    &:before {
+      content: $icomoon-logo-entire;
+    }
+  }
+
+  &-arrow-down-2 {
+    &:before {
+      content: $icomoon-arrow-down-2;
+    }
+  }
+
+  &-cross {
+    &:before {
+      content: $icomoon-cross;
+    }
+  }
+
+  &-help {
+    &:before {
+      content: $icomoon-help;
+    }
+  }
+
+  &-bell {
+    &:before {
+      content: $icomoon-bell;
+    }
+  }
+
+  &-volume-whole-off {
+    &:before {
+      content: $icomoon-volume-whole-off;
+    }
+  }
+
+  &-volume-whole-on {
+    &:before {
+      content: $icomoon-volume-whole-on;
+    }
+  }
+
+  &-arrow-down {
+    &:before {
+      content: $icomoon-arrow-down;
+    }
+  }
+
+  &-wallet {
+    &:before {
+      content: $icomoon-wallet;
+    }
+  }
+
+  &-game {
+    &:before {
+      content: $icomoon-game;
+    }
+  }
+
+  &-support {
+    &:before {
+      content: $icomoon-support;
+    }
+  }
+
+  &-help2 {
+    &:before {
+      content: $icomoon-help2;
+    }
+  }
+
+  &-user {
+    &:before {
+      content: $icomoon-user;
+    }
+  }
+
+  &-telegram {
+    &:before {
+      content: $icomoon-telegram;
+    }
+  }
+
+  &-steemit {
+    &:before {
+      content: $icomoon-steemit;
+    }
+  }
+
+  &-ethereum {
+    &:before {
+      content: $icomoon-ethereum;
+    }
+  }
+
+  &-exit {
+    &:before {
+      content: $icomoon-exit;
+    }
+  }
+
+  &-facebook {
+    &:before {
+      content: $icomoon-facebook;
+    }
+  }
+
+  &-twitter {
+    &:before {
+      content: $icomoon-twitter;
+    }
+  }
+
+  &-github {
+    &:before {
+      content: $icomoon-github;
+    }
+  }
+
+  &-linkedin {
+    &:before {
+      content: $icomoon-linkedin;
+    }
+  }
+
+  &-allert-cross {
+    &:before {
+      content: $icomoon-allert-cross;
+    }
+  }
+
+  &-etz {
+    &:before {
+      content: $icomoon-etz;
+    }
+  }
+
+  &-medium {
+    &:before {
+      content: $icomoon-medium;
+    }
+  }
+
+  &-tronlink {
+    &:before {
+      content: $icomoon-tronlink;
+    }
+  }
+}

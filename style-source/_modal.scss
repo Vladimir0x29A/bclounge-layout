@@ -1,0 +1,1358 @@
+//@import "colors"
+//@import "breaks"
+//@import "mixins"
+//@import "icomoon"
+
+.window-close {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #3081d3;
+  box-shadow: 0 5px 19px rgba(46, 127, 208, 0.39);
+  cursor: pointer;
+  transition: none 0.2s;
+  transition-property: box-shadow, background-color;
+  @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+    top: 8px;
+    right: 8px;
+    z-index: 100;
+  }
+
+  &::after {
+    @extend %im;
+    content: $icomoon-allert-cross;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    color: white;
+  }
+
+  &:hover {
+    background-color: #4595e6 !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.input-modal-container,
+.input-modal-close-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.input-modal-container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-main;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.input-modal-close-field {
+  cursor: pointer;
+}
+
+.anim-inner-input-modal {
+  $dur: 0.2s;
+
+  &-leave,
+  &-enter {
+    &-active {
+      transition: none $dur;
+      transition-property: opacity;
+
+      .input-modal {
+        transition: none $dur;
+        transition-property: transform;
+      }
+    }
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+
+    .input-modal {
+      transform: scale(0.9);
+    }
+  }
+}
+
+//#overlay
+// position: fixed
+// z-index: 10000
+// top: 0
+// left: 0
+// height: 100%
+// width: 100%
+// background: #161d2b
+// display: none
+
+//.recovery-window
+// +fluid(width, $break-main-800, $break-main-600, 420px, 320px)
+// background: #fff
+// border-radius: $border-radius-main
+// overflow: hidden
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   display: flex
+//   flex-direction: column
+//   width: 100vw
+//   height: 100vh
+//   padding-bottom: 0
+//   border-radius: 0
+//   overflow-y: scroll
+// .window-title
+//   +fluid(padding-top, $break-main-800, $break-main-600, 38px, 20px, false, true)
+//   +fluid(padding-bottom, $break-main-800, $break-main-600, 38px, 20px, false, true)
+// form
+//   +fluid(padding-right, $break-main-800, $break-main-600, 40px, 20px)
+//   +fluid(padding-left, $break-main-800, $break-main-600, 40px, 20px)
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     margin-bottom: 20px
+// .window-login-not-yet
+//   text-align: center
+//   +fluid(padding-top, $break-main-800, $break-main-600, 30px, 20px)
+//   +fluid(padding-bottom, $break-main-800, $break-main-600, 30px, 20px)
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     padding-bottom: 74px
+//     margin-top: auto
+// input.redborder
+//   width: 340px
+// input.blueborder
+//   width: 340px
+//   margin-bottom: 40px
+// .bluebutton
+//   display: block
+//   width: 100%
+//   +fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true)
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+
+//.registration-window
+// +fluid(width, $break-main-800, $break-main-600, 420px, 304px + 20px * 2)
+// +fluid(padding-bottom, $break-main-800, $break-main-600, 30px, 20px)
+// background: #fff
+// border-radius: $border-radius-main
+// overflow: hidden
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   display: flex
+//   flex-direction: column
+//   width: 100vw
+//   height: 100vh
+//   padding-bottom: 0
+//   border-radius: 0
+//   overflow-y: scroll
+// form
+//   +fluid(padding-right, $break-main-800, $break-main-600, 40px, 20px)
+//   +fluid(padding-left, $break-main-800, $break-main-600, 40px, 20px)
+// .input
+//   input
+//     +fluid(line-height, $break-main-800, $break-main-600, 45px, 40px, false, true)
+//     @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//       line-height: 38px
+// .window-title
+//   +fluid(padding-top, $break-main-800, $break-main-600, 38px, 20px)
+//   +fluid(padding-bottom, $break-main-800, $break-main-600, 38px, 20px)
+//   span a
+//     font-size: inherit
+// input.blueborder
+//   width: 340px
+//   margin: 0 0 10px 0
+// .checkbox
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+// .captcha
+//   +fluid(margin-top, $break-main-800, $break-main-600, 50px, 20px)
+//   > div > div
+//     position: relative
+//     margin: 0 auto
+//     +fluid(left, 344px, 320px, 0px, -11px, false, false)
+//     @media screen and (max-width: 344px)
+//       transform: scale(.93)
+// .bluebutton
+//   display: block
+//   width: 100%
+//   +fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true)
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+// .login-window-links
+//   text-align: center
+//   +fluid(margin-top, $break-main-800, $break-main-600, 20px, 16px)
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     padding-bottom: 74px
+// .window-social-login
+//   border-bottom-left-radius: $border-radius-main
+//   border-bottom-right-radius: $border-radius-main
+
+//.login-window
+// +fluid(width, $break-main-800, $break-main-600, 420px, 304px + 20px * 2)
+// background: #fff
+// border-radius: $border-radius-main
+// overflow: hidden
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   display: flex
+//   flex-direction: column
+//   width: 100vw
+//   height: 100vh
+//   border-radius: 0
+//   overflow-y: scroll
+// form
+//   +fluid(padding-right, $break-main-800, $break-main-600, 40px, 20px)
+//   +fluid(padding-left, $break-main-800, $break-main-600, 40px, 20px)
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     margin-bottom: 16px
+// .checkbox
+//   margin: 25px 0 34px 0
+// .bluebutton
+//   display: block
+//   width: 100%
+//   +fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true)
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+// .login-window-links
+//   text-align: center
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 16px)
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     margin-top: auto
+// .captcha
+//   +fluid(margin-top, $break-main-800, $break-main-600, 50px, 20px)
+//   > div > div
+//     position: relative
+//     margin: 0 auto
+//     +fluid(left, 344px, 320px, 0px, -11px, false, false)
+//     @media screen and (max-width: 344px)
+//       transform: scale(.93)
+
+//.window-title
+// font-family: SF UI Display
+// color: #2e3039
+// +fluid(font-size, $break-main-800, $break-main-600, 30px, 22px)
+// +fluid(padding-top, $break-main-800, $break-main-600, 38px, 30px)
+// +fluid(padding-bottom, $break-main-800, $break-main-600, 38px, 30px)
+// +fluid(padding-left, $break-main-800, $break-main-600, 40px, 20px)
+// +fluid(padding-right, $break-main-800, $break-main-600, 40px, 20px)
+// //padding: 38px 40px
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   padding-top: 20px
+
+//.window-social-login
+// padding: 25px 0 30px 0
+// background: #ecf0f2
+// margin: 38px 0 0 0
+// > span
+//   color: #2e3039
+//   font-size: 16px
+//   font-family: SF UI Display
+//   font-weight: 400
+// .social
+//   a
+//     width: 46px
+//     height: 46px
+//     display: block
+//     border-radius: $border-radius-main
+//     margin: 0 10px
+//     box-shadow: $bluebutton-box-shadow
+//     transition: $main-transition
+//     &:hover
+//       box-shadow: none !important
+//       background-color: #4595e6 !important
+//   a.facebook
+//     background: #3183d5 url(../images/facebook.png) 50% no-repeat
+//   a.telegram
+//     background: #3183d5 url(../images/telegram.png) 50% no-repeat
+//   a.youtube
+//     background: #3183d5 url(../images/youtube.png) 50% no-repeat
+//   a.vk
+//     background: #3183d5 url(../images/vk.png) 50% no-repeat
+
+//.window-login-not-yet
+// background: #2f81d2
+// color: #fff
+// +fluid(padding-top, $break-main-800, $break-main-600, 30px, 16px)
+// +fluid(padding-bottom, $break-main-800, $break-main-600, 30px, 16px)
+// margin-top: 20px
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   padding-bottom: 74px
+// span
+//   display: block
+//   margin-bottom: 5px
+//   font-family: SF UI Display
+//   font-size: 16px
+//   font-weight: 400
+// a
+//   font-family: SF UI Display
+//   font-weight: 600
+//   display: inline-block
+//   color: #fff
+//   text-decoration: none
+//   border-bottom: 1px solid rgba(255, 255, 255, .5)
+//   cursor: pointer
+//   user-select: none
+//   &:hover
+//     border-color: transparent
+
+//.styled .modal
+// +fluid(width, $break-main-800, $break-main-600, 420px, 320px)
+// background: #fff
+// border-radius: $border-radius-main
+// @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//   display: flex
+//   flex-direction: column
+//   width: 100vw
+//   height: 100vh
+//   border-radius: 0
+// .modal-header
+//   padding: 10px 25px
+//   border-radius: 4px 10px 0 0
+//   font-size: 1.5em
+//   min-height: 54px
+//   line-height: 54px
+//   background-color: #dae0e3
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     border-radius: 0
+// .modal-content
+//   +fluid(padding, $break-main-800, $break-main-600, 25px, 18px)
+// .modal-footer
+//   background-color: #dae0e3
+//   padding: 15px 25px
+//   border-radius: 0 0 $border-radius-main $border-radius-main
+//   position: absolute
+//   bottom: 0
+//   text-align: center
+//   width: 100%
+
+//.loginLite-container
+// .input
+//   input
+//     +fluid(line-height, $break-main-800, $break-main-600, 45px, 40px, false, true)
+//     @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//       line-height: 38px
+// .bluebutton
+//   display: block
+//   width: 100%
+//   +fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true)
+//   +fluid(margin-top, $break-main-800, $break-main-600, 30px, 20px)
+
+//.beta
+// &-container
+//   position: relative
+//   +fluid(width, $break-main-800, $break-main-600, 480px, 330px)
+//   +fluid(padding-top, $break-main-800, $break-main-600, 30px, 16px)
+//   +fluid(padding-right, $break-main-800, $break-main-600, 40px, 20px)
+//   +fluid(padding-left, $break-main-800, $break-main-600, 40px, 20px)
+//   +fluid(padding-bottom, $break-main-800, $break-main-600, 110px, 75px)
+//   border-radius: $border-radius-main
+//   background-color: white
+//   overflow: hidden
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     width: 100vw
+//     height: 100vh
+//     border-radius: 0
+//     overflow: visible
+// &-content
+//   @media screen and (max-width: $break-main-800)
+//     line-height: 1.1
+//   @media screen and (max-width: $break-main-600)
+//     line-height: 1.2
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     line-height: 1.3
+// &-title
+//   margin-bottom: 40px
+//   color: #2e3039
+//   +fluid(font-size, $break-main-800, $break-main-600, 30px, 22px)
+//   @media screen and (max-width: $break-main-800)
+//     margin-bottom: 30px
+//   @media screen and (max-width: $break-main-600)
+//     margin-bottom: 20px
+// &-button
+//   display: block
+//   width: 100%
+//   margin: 40px auto 0
+//   +fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true)
+//   @media screen and (max-width: $break-main-800)
+//     margin: 25px auto 0
+// &-footer
+//   position: absolute
+//   bottom: 0
+//   left: 0
+//   width: 100%
+//   +fluid(padding-top, $break-main-800, $break-main-600, 20px, 10px)
+//   +fluid(padding-right, $break-main-800, $break-main-600, 30px, 15px)
+//   +fluid(padding-left, $break-main-800, $break-main-600, 30px, 15px)
+//   +fluid(padding-bottom, $break-main-800, $break-main-600, 20px, 10px)
+//   color: white
+//   text-align: center
+//   background-color: #2f81d2
+//   @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width)
+//     padding-bottom: 74px
+//   span
+//     display: block
+//     margin-bottom: 5px
+//   a
+//     display: inline-block
+//     border-bottom: 1px solid rgba(255, 255, 255, .5)
+//     font-family: SF UI Display
+//     cursor: pointer
+//     text-transform: none
+//     &:hover
+//       border-color: transparent
+
+.modal {
+  position: relative;
+  z-index: 1101;
+  margin: auto;
+  @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+    margin: 0;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &--pointer {
+    .modal-overlay {
+      cursor: pointer;
+    }
+  }
+
+  &-parent {
+    position: fixed;
+    z-index: 901;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+    padding: 30px 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+      padding: 0;
+      overflow: visible;
+    }
+  }
+
+  .tron-container,
+  .token,
+  .freezing-modal,
+  .fair-game-checker,
+  .avatar-uploader {
+    @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+      width: 100vw !important;
+      height: 100vh;
+      border-radius: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      overflow: -moz-scrollbars-none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .freezing-modal,
+  .token__header,
+  .token__content,
+  .fair-game-checker__header,
+  .fair-game-checker__footer,
+  .avatar-uploader__header,
+  .avatar-uploader__content {
+    @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+      border-radius: 0;
+    }
+  }
+
+  //.tron, .dividends
+  .tron {
+    &-container {
+      display: flex;
+      flex-direction: column;
+      @include fluid(padding-top, $break-main-800, $break-main-600, 30px, 16px);
+      border-radius: $border-radius-main;
+      text-align: center;
+      color: #2e3039;
+      background-color: white;
+      overflow: hidden;
+      @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+        padding-top: 44px !important;
+      }
+
+      &-top {
+        @include fluid(padding-right, $break-main-800, $break-main-600, 34px, 20px);
+        @include fluid(padding-left, $break-main-800, $break-main-600, 34px, 20px);
+      }
+
+      &-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        @include fluid(height, $break-main-1000, $break-main-600, 116px, 100px);
+        background: #2f81d2 url("../images/bg-modal-tron.jpg") center no-repeat;
+        background-size: cover;
+        @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+          margin-top: auto !important;
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 26px;
+      @include fluid(font-size, $break-main-800, $break-main-600, 24px, 18px);
+    }
+
+    &-text-bottom {
+      margin-top: 26px;
+    }
+
+    &-button {
+      display: block;
+      max-width: 345px;
+      width: 100%;
+      @include fluid(height, $break-main-800, $break-main-600, 46px, 42px, false, true);
+      padding: 0;
+      margin: 0 30px;
+      box-shadow: 0 5px 20px #143d67;
+    }
+  }
+
+  //.dividends
+  // &-container
+  //   +fluid(width, $break-main-1000, $break-main-600, 500px, 330px)
+  //   &-top
+  //     +fluid(margin-bottom, $break-main-800, $break-main-600, 30px, 20px)
+  .tron {
+    &-container {
+      @include fluid(width, $break-main-1000, $break-main-600, 764px, 330px);
+
+      &-top {
+        @include fluid(margin-bottom, $break-main-800, $break-main-600, 52px, 26px);
+      }
+    }
+
+    &-links {
+      &-block {
+        display: flex;
+        justify-content: center;
+        margin: 58px 0;
+        @media screen and (max-width: $break-modal-tron) {
+          margin: 30px 0;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        li {
+          max-width: 180px;
+          width: 100%;
+
+          &:not(:first-child) {
+            margin-left: 30px;
+            @media screen and (max-width: $break-modal-tron) {
+              margin-top: 30px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 46px;
+        border-radius: $border-radius-main;
+        text-decoration: none;
+        font-weight: 600;
+        color: inherit;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.2s;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &.icomoon-tronlink::before,
+        img {
+          margin-right: 8px;
+        }
+
+        &.icomoon-tronlink {
+          &::before {
+            font-size: 30px;
+            color: #f82400;
+          }
+        }
+      }
+    }
+  }
+
+  .congratulations {
+    &-block {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      @include fluid(max-width, $break-main-1000, $break-main-400, 476px, 400px);
+      max-height: 481px;
+      overflow: hidden;
+      background: url("../images/congratulations.png") no-repeat center;
+      @include fluid(background-size, $break-main-1000, 320px, 476px, 320px, true, false);
+      @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+        max-height: none;
+      }
+
+      ~ .window-close {
+        @include fluid(top, $break-main-1000, $break-main-400, 23px, 73px, true, false);
+        right: 7%;
+        @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+          top: calc(50vh - #{320px / 2});
+          right: 12%;
+        }
+      }
+    }
+
+    &-text {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(-11px);
+      @include fluid(font-size, $break-main-1000, 320px, 30px, 20px);
+      line-height: 1.2;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 10px black;
+      user-select: none;
+    }
+
+    &-amount {
+      margin-top: 6px;
+    }
+  }
+
+  .how-to-play {
+    @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    &__inner {
+      position: relative;
+      @include fluid(width, 1700px, $break-main-400, 1000px, 360px, true, false);
+      padding-top: 9 / 16 * 100%;
+      @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+        width: 100vw;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    ~ .window-close {
+      @media screen and (max-width: $break-main-400), screen and (max-height: $break-modal-height) and (max-width: $break-modal-height-width) {
+        //top: calc(50vh - 150px)
+        top: calc(50vh - #{50vw * 9 / 16} - 30px);
+      }
+    }
+  }
+
+  .token,
+  .freezing-modal,
+  .avatar-uploader {
+    @include fluid(width, $break-token1, $break-token2, 700px, 370px);
+  }
+
+  //.token__content,
+  .freezing-modal {
+    @include fluid(padding-left, $break-token1, $break-token2, 60px, 16px);
+    @include fluid(padding-right, $break-token1, $break-token2, 60px, 16px);
+    @include fluid(padding-bottom, $break-token1, $break-token2, 60px, 16px);
+  }
+
+  .token,
+  .fair-game-checker,
+  .avatar-uploader {
+    @include fluid(font-size, $break-token1, $break-token2, 16px, 14px);
+    color: $color-dark-pale;
+
+    &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: $border-radius-main $border-radius-main 0 0;
+      color: white;
+      background: #092743 url("../images/bg-modal-tron-2.jpg") center no-repeat;
+      background-size: cover;
+    }
+
+    &__content {
+      border-radius: 0 0 $border-radius-main $border-radius-main;
+      background-color: white;
+    }
+  }
+
+  .fair-game-checker,
+  .avatar-uploader {
+    &__content {
+      @include fluid(padding-top, $break-token1, $break-token2, 24px, 16px);
+    }
+  }
+
+  .token {
+    @include fluid(font-size, $break-token1, $break-token2, 16px, 14px);
+    color: $color-dark-pale;
+
+    &__header {
+      @include fluid(height, $break-token1, $break-token2, 70px, 54px);
+
+      &-left, &-right {
+        display: flex;
+        align-items: center;
+        width: 50%;
+      }
+
+      &-left {
+        justify-content: flex-end;
+        border-right: 1px solid #4d7baa;
+        @include fluid(padding-right, $break-token1, $break-token2, 20px, 12px);
+        text-align: right;
+
+        &::before, &::after {
+          @extend %im;
+        }
+
+        &::before {
+          content: $icomoon-logo-tron;
+          margin-right: 8px;
+          @include fluid(font-size, $break-token1, $break-token2, 34px, 27px);
+          color: $color-yellow;
+        }
+
+        &::after {
+          content: $icomoon-logo-text;
+          color: white;
+          @include fluid(font-size, $break-token1, $break-token2, 21px, 17px);
+        }
+      }
+
+      &-right {
+        @include fluid(padding-left, $break-token1, $break-token2, 20px, 12px);
+      }
+    }
+
+    &__content {
+      padding-top: 16px;
+      @include fluid(padding-left, $break-token1, $break-token2, 50px, 16px);
+      @include fluid(padding-right, $break-token1, $break-token2, 50px, 16px);
+      @include fluid(padding-bottom, $break-token1, $break-token2, 30px, 16px);
+      text-align: center;
+
+      > :not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+
+    &-mining-level {
+      > :not(:first-child) {
+        @include fluid(margin-top, $break-token1, $break-token2, 10px, 6px);
+      }
+
+      &__title, &__description {
+        line-height: 1.3;
+      }
+
+      &__description {
+        color: $color-gray-3;
+      }
+    }
+
+    &-bar {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include fluid(height, $break-token1, $break-token2, 26px, 22px);
+      border-radius: 15px;
+      overflow: hidden;
+      background-color: $color-gray-6;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+      &__label {
+        position: relative;
+        color: white;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      &__percentage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 15px;
+        background-color: $color-blue-2;
+      }
+
+      &__pending {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &-dividends {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #cbd5dd;
+      border-radius: $border-radius-main;
+      padding: 0 6px;
+      @include fluid(padding-top, $break-token1, $break-token2, 18px, 12px);
+      @include fluid(padding-bottom, $break-token1, $break-token2, 18px, 12px);
+      background-color: $color-gray-7;
+      //&__title, &__amount
+      // font-size: 24px
+      &__amount {
+        margin-top: 10px;
+        color: $color-blue-2;
+      }
+
+      //&__countdown, &__description
+      // margin-top: 24px
+      &__countdown {
+        align-self: center;
+      }
+
+      &__description {
+        line-height: 1.3;
+
+        &-accented {
+          color: $color-blue-2;
+        }
+      }
+    }
+
+    &-countdown {
+      &__title {
+        position: relative;
+        padding: 0 8px;
+        margin: 0 20px -4px;
+        font-size: 12px;
+        color: $color-gray-6;
+        background-color: $color-gray-7;
+      }
+
+      &__bordered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #cbd5dd;
+        border-radius: $border-radius-main;
+        @include fluid(padding-top, $break-token1, $break-token2, 10px, 8px);
+        @include fluid(padding-bottom, $break-token1, $break-token2, 8px, 4px);
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+
+    &-statistic {
+      display: flex;
+      @media screen and (max-width: $break-token2) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &__column {
+        $elements: 3;
+        $offset: 16px;
+        display: flex;
+        flex-direction: column;
+        width: calc(#{round(10000% / $elements) / 100} - #{round($offset / $elements * ($elements - 1) * 100) / 100});
+        @media screen and (max-width: $break-token2) {
+          width: 100%;
+          max-width: 170px;
+        }
+
+        &:not(:first-child) {
+          margin-left: $offset;
+          @media screen and (max-width: $break-token2) {
+            margin-left: 0;
+            margin-top: 26px;
+          }
+        }
+
+        &--one {
+          width: 100%;
+        }
+      }
+
+      //&__amount, &__button
+      // margin-top: 18px
+      &__amount, &__button {
+        @include fluid(height, $break-token1, $break-token2, 40px, 34px);
+      }
+
+      &__amount {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius-main;
+        padding: 0 10px;
+        color: $color-blue-2;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &__input, &__label {
+        font-size: inherit;
+        color: inherit;
+        font-family: inherit;
+      }
+
+      &__input {
+        width: 100%;
+      }
+
+      &__label {
+        margin-left: 10px;
+      }
+
+      &__freezing-info {
+        position: absolute;
+        top: 50%;
+        //left: calc(100% + 10px)
+        @include fluid(right, $break-token1, $break-token2, -26px, -20px);
+        transform: translateY(-50%);
+        color: inherit;
+        cursor: pointer;
+
+        &:hover {
+          &::after {
+            color: $color-yellow;
+          }
+        }
+
+        &::after {
+          @extend %im;
+          content: $icomoon-question;
+          @include fluid(font-size, $break-token1, $break-token2, 18px, 14px);
+          text-shadow: 0 2px 4px #1552b7;
+        }
+      }
+
+      &__pending {
+        position: absolute;
+        right: calc(100% + 5px);
+        top: 50%;
+        transform: translateY(-50%);
+        @media screen and (max-width: $break-main-600) {
+          top: 100%;
+          right: 50%;
+          transform: translate(50%);
+        }
+        @media screen and (max-width: $break-main-400) {
+          right: calc(100% + 5px);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    //&__content > :not(:first-child),
+    &-dividends__countdown,
+    &-dividends__description {
+      @include fluid(margin-top, $break-token1, $break-token2, 16px, 8px);
+    }
+
+    //&-mining-level > :not(:first-child),
+    //&-dividends__amount,
+    &-statistic__amount,
+    &-statistic__button {
+      @include fluid(margin-top, $break-token1, $break-token2, 14px, 12px);
+    }
+
+    &-dividends__title,
+    &-dividends__amount,
+    &-statistic__amount,
+    &__header-right {
+      @include fluid(font-size, $break-token1, $break-token2, 20px, 16px);
+    }
+  }
+
+  .input-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border-radius: $border-radius-main;
+    padding: 30px 16px;
+    background-color: white;
+
+    > :not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &__header {
+      color: $color-dark-pale;
+    }
+
+    &__accented {
+      color: $color-blue-2;
+    }
+
+    &__header,
+    &__input {
+      @include fluid(font-size, $break-main-600, $break-main-400, 20px, 16px);
+    }
+
+    &__adjuster {
+      flex-grow: 1;
+    }
+
+    &__input-block {
+      display: flex;
+    }
+
+    &__submit {
+      align-self: center;
+      padding: 0 30px;
+    }
+
+    &__submit,
+    &__all {
+      @include fluid(height, $break-main-600, $break-main-400, 40px, 34px);
+    }
+
+    &__adjuster-button {
+      @include fluid(width, $break-main-600, $break-main-400, 40px, 34px);
+    }
+
+    &__all {
+      padding: 0 20px;
+      margin-left: 20px;
+      @media screen and (max-width: $break-main-400) {
+        padding: 0 12px;
+        margin-left: 12px;
+      }
+    }
+
+    &--inside {
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .freezing-modal {
+    border-radius: $border-radius-main;
+    @include fluid(padding-top, $break-token1, $break-token2, 60px, 16px);
+    color: $color-dark-pale;
+    background-color: white;
+
+    &__title {
+      @include fluid(font-size, $break-token1, $break-token2, 24px, 16px);
+      color: $color-blue-2;
+      text-align: center;
+    }
+
+    &__list {
+      //counter-reset: list1
+      &:not(:first-child) {
+        @include fluid(margin-top, $break-token1, $break-token2, 44px, 16px);
+      }
+    }
+
+    &__list-item {
+      @include fluid(text-indent, $break-token1, $break-token2, 30px, 16px);
+      @include fluid(line-height, $break-token1, $break-token2, 20px, 14px);
+
+      &:not(:first-child) {
+        @include fluid(margin-top, $break-token1, $break-token2, 24px, 20px);
+      }
+
+      //&::before
+      // counter-increment: list1
+      // content: counter(list1) ". "
+      // font-weight: bold
+
+    }
+  }
+
+  .fair-game-checker,
+  .avatar-uploader {
+    &__header {
+      @include fluid(height, $break-fair-game1, $break-fair-game2, 80px, 54px);
+      @include fluid(font-size, $break-fair-game1, $break-fair-game2, 24px, 16px);
+    }
+
+    &__content {
+      @include fluid(padding-top, $break-fair-game1, $break-fair-game2, 36px, 20px);
+      @include fluid(padding-left, $break-fair-game1, $break-fair-game2, 40px, 20px);
+      @include fluid(padding-right, $break-fair-game1, $break-fair-game2, 40px, 20px);
+      @include fluid(padding-bottom, $break-fair-game1, $break-fair-game2, 40px, 20px);
+    }
+  }
+
+  .fair-game-checker {
+    @include fluid(width, $break-fair-game1, $break-fair-game2, 600px, 370px);
+
+    &__content {
+      border-radius: 0;
+    }
+
+    &__footer {
+      border-radius: 0 0 $border-radius-main $border-radius-main;
+      @include fluid(padding-top, $break-fair-game1, $break-fair-game2, 22px, 20px);
+      @include fluid(padding-left, $break-fair-game1, $break-fair-game2, 40px, 20px);
+      @include fluid(padding-right, $break-fair-game1, $break-fair-game2, 40px, 20px);
+      @include fluid(padding-bottom, $break-fair-game1, $break-fair-game2, 24px, 20px);
+      background-color: $color-footer-bg-bottom;
+    }
+
+    &__input-block {
+      &:not(:first-child) {
+        @include fluid(margin-top, $break-fair-game1, $break-fair-game2, 24px, 16px);
+      }
+    }
+
+    &__label,
+    &__input,
+    &__button {
+      display: block;
+      width: 100%;
+    }
+
+    &__label {
+      margin-bottom: 8px;
+      color: $color-gray-3;
+    }
+
+    &__input {
+      border-radius: $border-radius-main;
+      padding: 0 10px;
+      @include fluid(font-size, $break-fair-game1, $break-fair-game2, 24px, 16px);
+      color: $color-blue-2;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+
+      &--answer {
+        text-align: center;
+      }
+
+      &--error {
+        color: $color-gray-3;
+        @include fluid(font-size, $break-fair-game1, $break-fair-game2, 18px, 14px);
+      }
+    }
+
+    &__input,
+    &__button {
+      @include fluid(height, $break-fair-game1, $break-fair-game2, $borderbutton-height, 34px);
+    }
+
+    &__button,
+    &__text {
+      margin-top: 15px;
+    }
+
+    &__input-pending-container {
+      position: relative;
+    }
+
+    &__input-pending {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 1.2;
+      color: $color-gray-3;
+    }
+
+    &__paragraph {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .avatar-uploader {
+    &__uploader,
+    &__cropper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > * {
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__jcrop-container {
+      align-self: stretch;
+
+      > img {
+        max-width: 100%;
+      }
+
+      .jcrop-holder {
+        margin: 0 auto;
+      }
+    }
+
+    $margin: 20px;
+
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-self: stretch;
+      margin-top: -$margin;
+      margin-left: -$margin;
+    }
+
+    &__button {
+      width: 100%;
+      max-width: 200px;
+      @include fluid(height, $break-fair-game1, $break-fair-game2, $borderbutton-height, 34px);
+      margin-top: $margin;
+      margin-left: $margin;
+    }
+  }
+}
+
+.fair-game-checker-footer {
+  color: $color-footer-light;
+
+  &__title {
+    margin-bottom: 16px;
+    @include rem(18);
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -16px;
+    margin-left: -35px;
+  }
+
+  &__list-item {
+    margin-top: 16px;
+    margin-left: 35px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    @include rem(15);
+    line-height: 1.1;
+    color: inherit;
+    text-decoration: none;
+    user-select: none;
+
+    &.icomoon-tron {
+      padding-left: 32px;
+    }
+
+    &.icomoon-github {
+      padding-left: 36px;
+    }
+
+    &:hover {
+      .fair-game-checker-footer {
+        &__text {
+          filter: brightness(200%);
+        }
+      }
+    }
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-yellow;
+      @include rem(26);
+    }
+  }
+
+  &__text {
+    transition: filter 0.2s;
+  }
+}
+
+.drop-zone {
+  display: flex;
+  justify-content: center;
+  align-self: stretch;
+  border: 4px dashed #cccccc;
+  border-radius: 8px;
+  padding: 20px 0;
+
+  &__button-container {
+    position: relative;
+    @extend %bluebutton3--width;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      ~ .drop-zone__button-style {
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__button-style {
+    pointer-events: none;
+  }
+
+  &--dragged-over {
+    border-style: solid;
+    border-color: #999999;
+  }
+}
+
+
+

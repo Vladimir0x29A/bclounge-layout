@@ -1,0 +1,147 @@
+//@import "svg-icons";
+//@import "coins"
+//@import "avatars";
+
+@import "icomoon";
+@import "fonts";
+@import "breaks";
+@import "colors";
+@import "mixins";
+
+$border-radius-main: 4px;
+
+@import "interface";
+@import "modal";
+
+
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  position: relative;
+  height: 100%;
+  font-size: 16px;
+
+  @media screen and (max-width: $break-main-800) {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+body {
+  background-color: $body-bg;
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  font-family: SF UI Display, sans-serif;
+
+  &.fixed-by-modal {
+    overflow: hidden;
+  }
+
+  &.fixed-by-betEditor {
+
+    @media screen and (max-width: $break-main-600) {
+      overflow: hidden;
+    }
+  }
+
+  &.fixed-by-preloader {
+    overflow: hidden;
+  }
+
+  > .body-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    > .container {
+      &-fluid {
+        height: auto;
+        min-height: $break-main-800;
+        margin-bottom: auto;
+
+        @media screen and (max-width: $break-main-800) {
+          min-height: 0;
+        }
+
+        &.home {
+          @media screen and (max-width: 600px) {
+            padding: 0;
+          }
+        }
+      }
+
+      &.home {
+        user-select: none;
+      }
+    }
+
+    &.error {
+      justify-content: center;
+      align-items: center;
+
+      .logo {
+        &-block {
+          align-self: center;
+          margin-bottom: 30px;
+        }
+
+        &-item {
+          &-entire, &-text {
+            &::before {
+              @extend %im;
+            }
+          }
+
+          &-entire {
+            &::before {
+              content: $icomoon-logo-tron;
+              font-size: 90px;
+              color: $color-yellow;
+              text-shadow: (-4px) 4px 16px rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          &-text {
+            margin-left: 14px;
+
+            &::before {
+              content: $icomoon-logo-text;
+              font-size: 50px;
+              color: white;
+              text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+          }
+        }
+      }
+
+      .error {
+        &-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        &-description {
+          margin-top: 6px;
+        }
+      }
+
+      .bluebutton {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+
+@import "apex";

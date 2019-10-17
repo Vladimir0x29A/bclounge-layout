@@ -1,0 +1,533 @@
+$border-radius-main: 4px
+
+@import "fonts"
+@import "mixins"
+@import "colors"
+@import "icomoon"
+@import "svg-icons"
+@import "breaks"
+
+@import "interface"
+//@import "coins"
+@import "modal"
+@import "avatars"
+
+
+
+
+*
+  padding: 0
+  margin: 0
+
+html
+  position: relative
+  height: 100%
+  font-size: 16px
+
+  @media screen and (max-width: $break-main-800)
+    font-size: 14px
+  //@media screen and (max-width: $break-main-2)
+    font-size: 13px
+  //@media screen and (max-width: $break-main-3)
+    font-size: 12px
+
+  &.ie9, &.ie8, &.ie7, &.ie6
+    #vapp
+      display: none
+
+    .oldbrowser
+      display: block
+
+.oldbrowser
+  display: none
+  padding: 30px 30px 0
+  text-align: center
+
+
+
+
+
+body
+  background-color: $body-bg
+  position: relative
+  height: 100%
+  min-height: 100%
+  font-family: SF UI Display
+
+  &.fixed-by-modal // Отключить прокрутку, если модальное окно открыто
+    overflow: hidden
+
+  &.fixed-by-betEditor // Отключить прокрутку, если редактор ставок открыт на мобильном экране в виде модального окна
+    @media screen and (max-width: $break-main-600)
+      overflow: hidden
+
+  &.fixed-by-preloader
+    overflow: hidden
+
+  > .body-wrapper
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+    > .container
+      &-fluid
+        height: auto
+        min-height: $break-main-800
+        margin-bottom: auto
+
+        @media screen and (max-width: $break-main-800)
+          min-height: 0
+
+        &.home
+          @media screen and (max-width: 600px)
+            padding: 0
+
+      &.home
+        user-select: none
+
+    &.error
+      justify-content: center
+      align-items: center
+
+      .logo
+        &-block
+          align-self: center
+          margin-bottom: 30px
+
+        &-item
+          &-entire, &-text
+            &::before
+              @extend %im
+
+          &-entire
+            &::before
+              content: $icomoon-logo-tron
+              font-size: 90px
+              color: $color-yellow
+              text-shadow: -4px 4px 16px rgba(0, 0, 0, .1)
+
+          &-text
+            margin-left: 14px
+
+            &::before
+              content: $icomoon-logo-text
+              font-size: 50px
+              color: white
+              text-shadow: 0 0 10px rgba(0, 0, 0, .2)
+
+      .error
+        &-container
+          display: flex
+          flex-direction: column
+          align-items: center
+
+        &-description
+          margin-top: 6px
+
+      .bluebutton
+        margin-top: 30px
+
+
+
+
+
+.container
+  &-fluid
+    max-width: 1340px
+    padding: 0 100px
+    margin-left: auto
+    margin-right: auto
+    box-sizing: border-box
+
+    @media screen and (max-width: $break-main-800)
+      padding: 0 15px
+
+    &.home
+      user-select: none
+
+
+
+
+
+.big_dashed_block
+  width: $dashedblock-width
+  border-radius: $dashedblock-border-radius
+  border: $dashedblock-border
+  background-color: $dashedblock-background-color
+  padding: $dashedblock-padding
+  position: relative
+
+.big_white_block
+  width: $shadowblock-width
+  border-radius: $shadowblock-border-radius
+  background-color: $shadowblock-background-color
+  box-shadow: $shadowblock-shadow
+  overflow: hidden
+  padding: 26px $shadowblock-padding 0
+  margin-top: 20px
+
+
+
+
+
+
+$header-animation-duration: .5s
+$header-height-closed: 60px
+$header-height-opened: 380px
+
+header
+  position: relative
+  min-height: $header-height-closed
+
+  .container-fluid
+    &.container-header
+      position: fixed
+      top: 0
+      z-index: 900
+      width: 100%
+      max-width: none
+      padding: 0
+
+      .top-nav
+        background-color: $header-line-color
+        position: relative
+        z-index: 10
+
+  &.closed
+    background: #031325
+
+
+
+
+
+.header-scrolling-block
+  position: relative
+  height: $header-height-opened
+  background: #041423 url("../images/header-image-tron.jpg") center no-repeat
+  background-size: cover
+  transition: transform $header-animation-duration
+
+  @media screen and (max-width: $break-header-sphere)
+    height: auto
+    background: #07284c
+
+  &.closed
+    transform: translateY(-100%) translateY($header-height-closed)
+
+    .promo-container
+      opacity: 0
+
+
+
+
+
+
+#particles-js, #particles-js2
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 1
+  transition: opacity $header-animation-duration
+
+#particles-js
+  filter: blur(.6px)
+
+#particles-js2
+  filter: blur(3px)
+
+
+
+
+
+
+
+.header-manipulated
+  position: absolute
+  top: 100%
+  left: 50%
+  width: 50px
+  height: 12px
+  border-radius: 0 0 $border-radius-main $border-radius-main
+  transform: translate(-50%)
+  background-color: #3082d4
+  box-shadow: 0 5px 19px rgba(46, 127, 208, .4)
+  cursor: pointer
+  transition: opacity $header-animation-duration
+
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+
+  &::after
+    @extend %im
+    content: $icomoon-arrow-down-2
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    font-size: 8px
+    color: white
+
+  &.up
+    &::after
+      transform: translate(-50%, -50%) rotate(180deg)
+
+  &.left-nav-opened // Скрыть манипулятор, если левое меню (мобильное) открыто
+    @media screen and (max-width: $break-main-800)
+      opacity: 0
+      pointer-events: none
+
+  &.scrolled // Если страница прокручена, манипулятор, закрепленный на шапке, скрывается
+    opacity: 0
+    pointer-events: none
+
+
+
+
+
+
+
+.logo-block
+  display: flex
+  align-items: center
+  align-self: stretch
+
+  @media screen and (max-width: $break-header-user-panel)
+    margin-right: auto
+
+  &__main-logo
+    padding-left: 20px
+    height: 100%
+    position: relative
+
+    @media screen and (max-width: $break-header-user-panel)
+      padding-left: 12px
+
+  &__main-link
+    position: relative
+    display: flex
+    align-items: center
+    height: 100%
+    color: $logo-color
+    font-size: 24px
+    font-weight: 700
+    text-decoration: none
+
+    &::before, &::after
+      @extend %im
+
+    &::before
+      content: $icomoon-logo-tron
+      display: inline-block
+      margin-right: 8px
+      font-size: 34px
+      +fluid(font-size, $break-main-800, 320px, 30px, 27px, false, false)
+      color: $color-yellow
+
+      @media screen and (max-width: $break-main-600)
+        margin-right: 5px
+
+    &::after
+      content: $icomoon-logo-text
+      color: white
+      font-size: 21px
+      +fluid(font-size, $break-main-800, 320px, 19px, 17px, false, false)
+
+    h1
+      display: none
+
+  &__header-game-links
+    margin: 9px 0
+    margin-left: 20px
+
+    @media screen and (max-width: $break-header-game-links)
+      display: none
+
+
+
+
+
+.top-nav
+  &-block
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 60px
+
+    div[is="UserPanel"]
+      display: none
+
+    .burger-button
+      position: relative
+      display: none
+      align-self: stretch
+      width: 50px
+      border-right: 1px solid $color-separator-userPanel
+      margin: 9px 0
+      background: none // Костыль, не сброшены стандартные стили браузера
+      transition: none // Костыль, перекрытие interface.sass
+      cursor: pointer
+
+      @media screen and (max-width: $break-header-user-panel)
+        display: block
+
+      &:hover
+        background: none !important // Костыль, перекрытие interface.sass
+
+      &.open
+        span
+          opacity: 0
+
+        &::before
+          transform: translate(-50%, -50%) translateY(6px) rotate(45deg) scale(1.2, 1.1)
+
+        &::after
+          transform: translate(-50%, -50%) translateY(-6px) rotate(-45deg) scale(1.2, 1.1)
+
+      &::before,
+      &::after,
+      span
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 18px
+        height: 2px
+        transform: translate(-50%, -50%)
+        background-color: white
+        transition: none .2s
+
+      &::before,
+      &::after
+        content: ''
+        transition-property: transform
+
+      &::before
+        top: calc(50% - 6px)
+
+      &::after
+        top: calc(50% + 6px)
+
+      span
+        transition-property: opacity
+
+.promo
+  &-container
+    position: relative
+    display: flex
+    align-items: flex-start
+    height: 100%
+    padding-top: 110px
+    padding-bottom: 30px
+    overflow: hidden
+    transition: opacity $header-animation-duration
+
+    @media screen and (max-width: $break-main-800)
+      justify-content: center
+      padding-top: 90px
+
+  &-text
+    position: relative
+    z-index: 1
+    text-shadow: 0 1px 10px #043e6b
+
+    @media screen and (max-width: $break-main-800)
+      left: 0
+      max-width: 460px
+      padding: 0 10px
+      text-align: center
+
+  &-title
+    +fluid(margin-bottom, $break-main-800, 320px, 25px, 12px)
+    +fluid(font-size, $break-main-800, 320px, 30px, 20px)
+    font-weight: 300
+    color: #fefefe
+
+    .orange
+      color: $color-yellow
+
+  &-desc
+    +fluid(font-size, $break-main-800, 320px, 16px, 14px)
+    +fluid(line-height, $break-main-800, 320px, 24px, 18px)
+    color: #fff
+
+    @media screen and (max-width: $break-main-800)
+      br
+        display: none
+
+
+
+
+
+
+.breadcrumb
+  display: flex
+  user-select: none
+  padding-top: 28px
+
+  @media screen and (max-width: $break-main-600)
+    display: flex
+    justify-content: center
+    padding-top: 20px
+
+  li
+    display: flex
+
+    &:not(:first-child)
+      margin-left: 7px
+
+      @media screen and (max-width: $break-main-400)
+        margin-left: 5px
+
+    &:not(:last-of-type)
+      &::after
+        @extend %im
+        content: "\E905"
+        padding-left: 2px
+        margin-left: 9px
+        align-self: center
+        transform: rotate(-90deg)
+        font-size: 6px
+        color: #9bafc5
+
+        @media screen and (max-width: $break-main-400)
+          margin-left: 5px
+
+    &:last-of-type
+      color: #2e3039
+
+    span
+      color: #8496ab
+
+
+
+
+
+
+
+@import "header-user-panel"
+//@import "last-winner"
+//@import "support"
+//@import "top"
+//@import "history"
+//@import "game"
+//@import "player-chance"
+//@import "footer"
+@import "left-sidebar"
+//@import "right-sidebar"
+//@import "currency-sidebar"
+//@import "drop-notifications"
+//@import "profile"
+//@import "profile2"
+//@import "faq"
+//@import "transactions"
+//@import "notifications"
+//@import "unused"
+//@import "notsample"
+//@import "referral"
+//@import "alertify"
+@import "apex"
+@import "dailygiveaway"

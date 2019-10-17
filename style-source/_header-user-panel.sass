@@ -1,0 +1,525 @@
+.header-game-links
+  display: flex
+  align-self: stretch
+
+  @media screen and (max-width: 500px)
+    display: none
+
+  &__link
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    min-width: 100px
+    border-right: 1px solid $color-separator-userPanel
+    padding: 0 12px
+    box-sizing: border-box
+    font-size: 12px
+    text-align: center
+    color: white
+    text-decoration: none
+
+    &:first-child
+      border-left: 1px solid $color-separator-userPanel
+
+    &.svg-icons--apex
+      &::before
+        padding-top: 2px
+
+    @media screen and (max-width: $break-main-800)
+      min-width: 80px
+
+  &--soon
+    color: $color-gray-9
+
+    &::before
+      filter: grayscale(.5) brightness(.8)
+
+
+
+
+
+
+
+//.user-panel-balance
+  display: flex
+  align-items: center
+  align-self: stretch
+  box-sizing: border-box
+  white-space: nowrap
+  cursor: pointer
+  outline: none
+  user-select: none
+
+  .balance-header-icon
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &::before /*** wallet icon ***/
+      @extend %im
+      content: $icomoon-wallet
+      font-family: icomoon
+      font-size: 40px
+      color: $color-yellow
+
+      @media screen and (max-width: $break-header-user-panel)
+        font-size: 32px
+
+    &::after /*** dropdown arrow icon ***/
+      @extend %im
+      content: $icomoon-arrow-down
+      font-family: icomoon
+      font-size: 6px
+      color: #fff
+      margin-left: 10px
+      transition: transform .2s
+
+      @media screen and (max-width: $break-header-user-panel)
+        content: none
+
+    &.open
+      &::after
+        transform: rotate(180deg)
+
+
+
+
+.header-user
+  //&-panel-links,
+  //&-panel-buttons,
+  //&-panel-walletSystem,
+  &-panel-navigation,
+  &-signInLink,
+  &-panel-referral,
+  &-panel-dividends,
+  &-panel-daily-away,
+  &-panel-language
+    margin: 9px 0
+
+
+
+
+
+  &-signInLink
+    display: flex
+    align-items: center
+    //border-left: 1px solid $color-separator-userPanel
+    padding: 0 10px
+
+    a
+      text-decoration: none
+      color: $color-yellow
+      +rem(18)
+      font-weight: 600
+      cursor: pointer
+      transition: color .2s
+
+      &:hover
+        color: white
+
+
+
+
+  &-panel
+    display: flex
+    user-select: none
+
+    &-block
+      display: flex
+      align-self: stretch
+
+    &-links
+      display: flex
+      align-items: center
+      padding: 0 16px
+
+      @media screen and (max-width: $break-header-user-panel)
+        border-left: 1px solid $color-separator-userPanel
+        padding: 0 13px
+
+      @media screen and (max-width: $break-main-400)
+        display: none
+
+    //&-telegram
+      text-decoration: none
+
+      &::after
+        @extend %im
+        content: $icomoon-telegram
+        font-size: 26px
+        color: $color_yellow
+        transition: color .2s
+
+        @media screen and (max-width: $break-header-user-panel)
+          font-size: 22px
+
+      &:hover
+        &::after
+          color: white
+
+
+
+
+
+    //&-buttons
+      position: relative
+      display: flex
+      align-items: center
+      align-self: stretch
+      //border-left: 1px solid $color-separator-userPanel
+      padding-left: 18px
+      padding-right: 13px
+
+      &.right-border
+        border-right: 1px solid $color-separator-userPanel
+
+      @media screen and (max-width: $break-header-user-panel)
+        padding-left: 9px
+        padding-right: 8px
+
+
+
+
+
+    &-referral,
+    &-dividends,
+    &-daily-away
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      align-self: stretch
+      padding: 0 13px
+      line-height: .9
+
+      @media screen and (max-width: $break-header-user-panel)
+        padding-left: 8px
+        padding-right: 8px
+
+      @media screen and (max-width: $break-dividends)
+        display: none
+
+      &.right-border
+        border-right: 1px solid $color-separator-userPanel
+
+      .title
+        color: $color-yellow
+
+        &::after
+          @extend %im
+          display: inline-block
+          margin-left: 6px
+
+      .soon
+        font-size: 13px
+        color: $color-gray-11
+
+    &-referral
+      border-left: 1px solid $color-separator-userPanel
+
+      .title
+        padding-top: 10px
+
+        &::after
+          content: $icomoon-referal
+
+    &-dividends
+      cursor: pointer
+
+      &:hover
+        .title
+          filter: contrast(0) brightness(200%)
+
+      .title
+        padding-bottom: 3px
+        transition: filter .2s
+
+        &::after
+          content: $icomoon-dividends
+
+    &-daily-away
+      border-left: 1px solid $color-separator-userPanel
+      cursor: pointer
+      text-decoration: none
+
+      &:hover
+        .title
+          filter: contrast(0) brightness(200%)
+
+      .title
+        padding-bottom: 3px
+        transition: filter .2s
+
+        &::after
+          content: $icomoon-airdrop
+
+
+
+
+
+    //&-volume
+      display: flex
+      justify-content: space-between
+      align-items: center
+      align-self: center
+      flex-shrink: 0
+      font-size: 21px
+      width: 32px
+      height: 30px
+      cursor: pointer
+      box-sizing: content-box
+      margin-right: 2px
+      margin-left: 11px
+
+      @media screen and (max-width: $break-header-user-panel)
+        display: none
+
+      &::before
+        @extend %im
+
+      &.on
+        color: $color-volume-on
+
+        &::before
+          content: $icomoon-volume-whole-on
+
+      &.off
+        color: $color-volume-off
+
+        &::before
+          content: $icomoon-volume-whole-off
+
+
+
+
+    //&-notifications
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      margin-right: 5px
+      margin-left: 2px
+
+      @media screen and (max-width: $break-header-user-panel)
+        margin: 0
+
+      i
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 30px
+        height: 30px
+        cursor: pointer
+
+        @media screen and (max-width: $break-header-user-panel)
+          width: 48px
+          height: calc(100% - 18px)
+
+        &::before
+          @extend %im
+          display: block
+          position: relative
+          content: $icomoon-bell
+          color: #fff
+          font-family: icomoon
+          font-size: 19px
+
+      i > span
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top: 21px
+        left: 14px
+        min-width: 12px
+        height: 16px
+        font-family: SF UI Display
+        font-size: 12px
+        color: #fff
+        line-height: 16px
+        border-radius: 7px
+        border: 2px solid #0b3c71
+        background-color: #f44336
+        box-sizing: content-box
+        padding: 0 2px
+        z-index: 1
+
+
+
+
+
+    &-navigation
+      position: relative
+      display: flex
+      align-items: center
+      align-self: stretch
+      border-left: 1px solid $color-separator-userPanel
+      padding: 0 15px
+      cursor: pointer
+
+      @media screen and (max-width: $break-header-user-panel)
+        padding-right: 10px
+        padding-left: 10px
+
+      &::after /*** dropdown arrow icon ***/
+        @extend %im
+        content: $icomoon-arrow-down
+        font-size: 6px
+        color: #fff
+        margin-left: 10px
+        transition: transform .2s
+
+        @media screen and (max-width: $break-header-user-panel)
+          content: none
+
+      &.open
+        &::after
+          transform: rotate(180deg)
+
+      &-username
+        margin-right: 10px
+        text-align: right
+
+        @media screen and (max-width: $break-header-user-panel)
+          display: none
+
+        &.nowrap
+          position: relative
+          max-width: 120px
+          overflow: hidden
+          white-space: nowrap
+
+          &::after
+            content: ''
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 0
+            width: 30px
+            background-image: linear-gradient(to left, #043e6b, transparent)
+
+        span
+          display: block
+          color: #fff
+          font-size: 14px
+
+          &:not(:first-of-type)
+            margin-top: 2px
+
+      &-userpic
+        cursor: pointer
+
+
+
+
+
+    &-language
+      position: relative
+      display: flex
+      align-items: center
+      align-self: stretch
+      border-left: 1px solid $color-separator-userPanel
+      margin: 9px 0
+      padding-left: 17px
+      cursor: pointer
+
+      @media screen and (max-width: $break-header-user-panel)
+        display: none
+
+      &-current
+        img
+          display: block
+
+      &::after /*** dropdown arrow icon ***/
+        @extend %im
+        content: $icomoon-arrow-down
+        font-family: icomoon
+        font-size: 6px
+        text-align: center
+        color: #fff
+        width: 40px
+        transition: transform .2s
+
+      &.open
+        &::after
+          transform: rotate(180deg)
+
+    //&-walletSystem
+      position: relative
+      display: flex
+      align-items: center
+      align-self: stretch
+      //border-left: 1px solid #0b5193
+      padding: 0 10px
+      //cursor: pointer
+
+      @media screen and (max-width: $break-main-800)
+        padding-left: 10px
+        padding-right: 10px
+
+      //&::after /*** dropdown arrow icon ***/
+        @extend %im
+        content: $icomoon-arrow-down
+        font-size: 6px
+        color: #fff
+        margin-left: 10px
+        transition: transform .2s
+
+        @media screen and (max-width: $break-header-user-panel)
+          content: none
+
+      //&.open
+        &::after
+          transform: rotate(180deg)
+
+
+
+
+
+//.walletSystem
+  &-title
+    color: white
+    font-size: 14px
+    margin-left: 10px
+
+    @media screen and (max-width: $break-main-800)
+      display: none
+
+
+
+
+
+
+//ul.balance-select-list
+  position: absolute
+  top: calc(50% + 30px)
+  right: 0
+  z-index: 9
+  padding: 10px 25px
+  border-radius: $border-radius-main
+  overflow: hidden
+  transform-origin: calc(100% - 23px) -8px
+  background-color: #fff
+  box-shadow: 0 6px 40px 8px rgba(68, 68, 68, .11)
+  cursor: default
+
+  li
+    display: flex
+    justify-content: space-between
+    font-size: 16px
+    line-height: 30px
+    text-align: right
+    color: #8496ab
+    font-weight: 400
+    transition: none .2s
+    transition-property: background-color, color
+
+    @media screen and (max-width: $break-main-400)
+      line-height: 28px
+
+    .balance-title
+      margin-right: 10px
+
+    .amount
+      color: #2d2f39

@@ -1,0 +1,76 @@
+$color-gray: #e4ebf1;
+$color-gray-2: #c9d4dc;
+$color-gray-3: #8496ab;
+$color-gray-4: #cfe0e7;
+$color-gray-5: #cbd5dd;
+$color-gray-6: #a5bacc;
+$color-gray-7: #f5f9fc;
+$color-gray-8: #96a7bb;
+$color-gray-9: #78899c;
+$color-gray-10: #d1dce6;
+$color-gray-11: #5f748c;
+
+$color-blue: #3386d9;
+$color-blue-2: #3082d4;
+$color-blue-3: #4595e6;
+$color-blue-4: #0f8bfe;
+$color-blue-5: #3284d6;
+$color-blue-6: #8eb1d4;
+
+$color-dark-pale: #2e3039;
+$color-dark-pale-2: #3b4b6a;
+
+$color-green: #30c508;
+$color-green-2: #8bc34a;
+$color-green-3: #00c853;
+
+$color-red: #f44336;
+
+$color-yellow: #ff9800;
+$color-yellow-2: #ffc107;
+
+/* Основной цвет фона сайта */
+$body-bg: #ecf0f2;
+
+/* Фоновый цвет шапки */
+$header-bg: #043e6b;
+
+$main-bgcolor: #273148;
+$main-fgcolor: #232d43;
+
+/* Задний фоновый цвет правой всплывающей панели ставок */
+$right-side-bg: $main-bgcolor;
+
+/* Задний фоновый цвет левого меню */
+$left-side-bg: $main-bgcolor;
+
+/* Фоновый цвет надписи "Ставка" правой всплывающей панели ставок */
+$right-side-top-bg: $main-fgcolor;
+
+/* Передний фоновый цвет левого меню */
+$left-side-fg: $main-fgcolor;
+
+/* Цвет полоски с лого */
+$header-line-color: rgba(9, 52, 101, 0.6);
+
+// User Panel separators color
+$color-separator-userPanel: #0b5193;
+
+/* Футер */
+$color-footer: #111621;
+$color-footer-links: #2c7dce;
+$color-footer-light: #8292a7;
+$color-footer-bg-bottom: #111621;
+$color-footer-bg-top: #192133;
+
+/* Цвет лого в шапке */
+$logo-color: white;
+
+//Желтый
+$color-volume-off: $color-red;
+$color-volume-on: $color-green-3;
+
+$color-support-icon: $color-blue-2;
+
+$color-tab-background: $color-gray;
+$color-tab-border: $color-gray-2;

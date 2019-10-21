@@ -1,8 +1,3 @@
-//@import "colors"
-//@import "breaks"
-@import "mixins";
-//@import "icomoon"
-
 .window-close {
   position: absolute;
   top: -9px;
@@ -1035,3 +1030,125 @@
 
 
 
+.fair-game-apex {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 60px;
+    padding: 30px;
+    background: #1a4e82;
+  }
+
+  &__bottom {
+    position: relative;
+    grid-column: 1 / -1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      top: -30px;
+      left: 0;
+      right: 0;
+      background: #205589;
+    }
+  }
+
+  &__inputs {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      left: -30px;
+      top: 0;
+      bottom: 0;
+      background: #205589;
+    }
+  }
+
+  &__input {
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
+  }
+
+  &__label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: $color-blue-light;
+  }
+
+  &__map {
+
+  }
+}
+
+.fair-game-apex-input {
+  &__input {
+    width: 100%;
+    border: 1px solid #22578b;
+    border-radius: $border-radius-main;
+    padding: 14px 20px;
+    font-size: 16px;
+    color: white;
+    background: #174675;
+  }
+}
+
+.fair-game-paragraphs {
+  &__paragraph {
+    color: #84abd5;
+
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  &__span {
+    color: white;
+  }
+}
+
+.fair-game-apex-map {
+  border-radius: 5px;
+  padding: 5px;
+  background: #27619c;
+
+  $margin: 5px;
+
+  &__columner {
+    display: flex;
+    flex-wrap: wrap;
+    margin: (-$margin) 0 0 (-$margin);
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include width_col(3, $margin);
+    height: 20px;
+    margin: ($margin) 0 0 $margin;
+    border-radius: 3px;
+    background: #20568c;
+
+    &--winning {
+      &::before {
+        @extend %im;
+        content: $icomoon-logo-tron;
+        font-size: 15px;
+        color: $color-yellow;
+      }
+    }
+
+    &--losing {
+
+    }
+  }
+}

@@ -61,3 +61,12 @@
     }
   }
 }
+
+@mixin width_col($item_count, $margin) {
+  @if $margin == 0 {
+    width: floor(10000% / $item_count) / 100;
+  }
+  @else {
+    width: calc(#{floor(10000% / $item_count) / 100} - #{$margin});
+  }
+}

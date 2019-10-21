@@ -651,6 +651,12 @@ body.new-game {
     margin-top: 12px;
   }
 
+  &--fair {
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
   &--current {
     position: relative;
 

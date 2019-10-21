@@ -9,7 +9,6 @@
     <title>Document</title>
 </head>
 <body class="fixed-by-modal">
-
 <!--<div class="modal-parent modal&#45;&#45;pointer" style="">
     <div class="modal-overlay"></div>
     <div class="modal">
@@ -96,61 +95,202 @@
         </div>
     </div>
 </div>-->
+<svg class="svg-sprite" style="position: absolute; z-index: -1;">
+    <symbol id="#svg-sprite__cross-symbol-small" viewBox="0 0 12 12" width="12" height="12">
+        <path d="M7.49 6l4.21 4.21c.98.98-.5 2.47-1.49 1.49L6 7.49 1.79 11.7c-.98.98-2.47-.5-1.49-1.49L4.51 6 .31 1.79C-.67.81.81-.68 1.8.3L6 4.51 10.21.3c.98-.98 2.47.5 1.49 1.49L7.49 6z" fill="#1a4874"/>
+    </symbol>
+</svg>
 
 <div class="modal-parent modal--pointer" style="">
     <div class="modal-overlay"></div>
     <div class="modal">
         <div class="modal-content">
-            <div class="fair-game-checker">
-                <div class="modal-header">Provably Fair Game</div>
-                <div class="fair-game-checker__content">
-                    <!--<div class="fair-game-checker__input-block">
-                        <label for="fair-game-checker__round-info" class="fair-game-checker__label">Block Number:</label>
-                        <input id="fair-game-checker__round-info" type="text" readonly="readonly" class="fair-game-checker__input">
-                    </div>
-
-                    <div class="fair-game-checker__input-block">
-                        <label for="fair-game-checker__current-round" class="fair-game-checker__label">Last Ticket:</label>
-                        <input id="fair-game-checker__current-round" type="text" readonly="readonly" class="fair-game-checker__input">
-                    </div>
-
-                    <div class="fair-game-checker__input-block">
-                        <label for="fair-game-checker__current-answer" class="fair-game-checker__label">Win Ticket:</label>
-                        <div class="fair-game-checker__input-pending-container">
-                            <input id="fair-game-checker__current-answer" readonly="readonly" type="text" class="fair-game-checker__input fair-game-checker__input&#45;&#45;answer"> &lt;!&ndash;&ndash;&gt;
+            <div class="fair-game-apex">
+                <div class="modal-header">Fair Game</div>
+                <div class="fair-game-apex__content">
+                    <div class="fair-game-apex__map">
+                        <div class="fair-game-apex__label">Round map</div>
+                        <div class="fair-game-apex__map fair-game-apex-map">
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="fair-game-apex-map__columner">
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                                <div class="fair-game-apex-map__cell fair-game-apex-map__cell--winning"></div>
+                                <div class="fair-game-apex-map__cell">
+                                    <svg width="12" height="12" class="game-knobs__cross-button">
+                                        <use xlink:href="#svg-sprite__cross-symbol-small"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <button class="fair-game-checker__button bluebutton2">Recheck</button>
-
-                    <div class="fair-game-checker__text">
-                        <div class="fair-game-checker__paragraph">All bets on Fast-Game is placed through our smart contracts on the TRON.network blockchain. This ensures that Fast-Game is probably-fair. This is how it works:</div>
-                        <div class="fair-game-checker__paragraph">You can enter your own SEED to the TRON.network blockchain. If you don't enter your own SEED, then a public random SEED will be used.</div>
-                        <div class="fair-game-checker__paragraph">When the player placed a bet and enters their own SEED, the smart contract will generate a random SHA-256 HASH, the timestamp of the current bet, and the previous blockchain from coinbase will be mixed to generate a random hash. The SEED generated from the smart contract and the SEED provided by the player will then be mixed to generate a random LUCKY number.</div>
-                    </div>-->
+                    <div class="fair-game-apex__inputs">
+                        <div class="fair-game-apex__input fair-game-apex-input">
+                            <div class="fair-game-apex__label">Round #</div>
+                            <input type="text" class="fair-game-apex-input__input" value="198">
+                        </div>
+                        <div class="fair-game-apex__input fair-game-apex-input">
+                            <div class="fair-game-apex__label">Map</div>
+                            <input type="text" class="fair-game-apex-input__input" value="8633254789652">
+                        </div>
+                        <div class="fair-game-apex__input fair-game-apex-input">
+                            <div class="fair-game-apex__label">Bet Tx HASH</div>
+                            <input type="text" class="fair-game-apex-input__input" value="KH0&BGFRCBUIJ1658C">
+                        </div>
+                        <div class="fair-game-apex__input fair-game-apex-input">
+                            <div class="fair-game-apex__label">Random string</div>
+                            <input type="text" class="fair-game-apex-input__input" value="97MGFG%VFULLP356">
+                        </div>
+                    </div>
+                    <div class="fair-game-apex__bottom">
+                        <div class="fair-game-paragraphs">
+                            <div class="fair-game-paragraphs__paragraph">Calculated HASH:
+                                <span class="fair-game-paragraphs__span">98JHVHMK09JH675</span></div>
+                            <div class="fair-game-paragraphs__paragraph">Round HASH:
+                                <span class="fair-game-paragraphs__span">F17LKkhjuj087NHVML6FC4CXE1</span></div>
+                        </div>
+                        <div class="game-knobs game-knobs--fair">
+                            <button class="game-knobs__column game-knobs__column--one">
+                                <span class="game-knobs__span-simple">Check</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
                 <div class="modal-footer">
                     <div class="modal-footer__title">Fair Blockchain game:</div>
-
                     <ul class="modal-footer__list">
                         <li class="modal-footer__list-item">
                             <a target="_blank" href="https://github.com/BCLounge/tron" class="icomoon-github modal-footer__link">
-                                <span class="modal-footer__text">Open source code</span>
-                            </a>
+                                <span class="modal-footer__text">Open source code</span> </a>
                         </li>
-
                         <li class="modal-footer__list-item">
                             <span class="icomoon-tron modal-footer__link">Tron Smart Contract</span>
                         </li>
                     </ul>
                 </div>
             </div>
-
             <div class="window-close"></div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
